@@ -1,18 +1,17 @@
-import lamda
+import requests
 
-def generate_poem():
-    # Inicializa a LaMDA
-    lamda_model = lamda.LaMDA()
+api_url = 'https://api.koboldai.com/v1/generate-text'
+api_key = 'YC0Jwj1pNh43H2kU3cil2CA'
 
-    # Obtém um prompt do usuário
-    prompt = input("Carro")
+headers = {
+    'Authorization': 'Bearer ' + api_key
+}
 
-    # Gera o poema
-    poem = lamda_model.generate_text(prompt=prompt, max_length=1000)
+data = {
+    'prompt': 'Once upon a time',
+    'max_tokens': 50
+}
 
-    # Imprime o poema
-    print(poem)
+response = requests.post(api_url, headers=headers, json=data)
 
-
-if __name__ == "__main__":
-    generate_poem()
+print(response.json())
