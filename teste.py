@@ -1,4 +1,5 @@
 import requests
+import time
 
 # Sua chave de API do KoboldAI
 API_KEY = "JwYLxfbojMR2LGOwBxGoBA"
@@ -17,6 +18,7 @@ response = requests.post(
     "https://api.koboldai.com/generate-code",
     headers={"Authorization": f"Bearer {API_KEY}"},
     json={"model_name": MODEL_NAME, "prompt": PROMPT},
+    timeout=5,
 )
 
 # Verifique o status da solicitação
@@ -28,4 +30,4 @@ if response.status_code == 200:
     exec(generated_code)
 else:
     # A solicitação falhou
-    print("Falha ao gerar código:", response.status_code)
+    print(f"Falha ao gerar código: {response.status_code}")
