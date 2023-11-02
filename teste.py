@@ -1,7 +1,7 @@
 pythonCopy code
 import requests
 
-api_url = 'https://api.koboldai.com/v1/generate-text'
+api_url = 'https://stablehorde.net/api/v2/workers?type=text'
 api_key = 'YC0Jwj1pNh43H2kU3cil2CA'
 
 headers = {
