@@ -1,3 +1,4 @@
+pythonCopy code
 import requests
 
 api_url = 'https://api.koboldai.com/v1/generate-text'
